@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#a {
+    color: aqua;
+    font-size: 135%;
+}
+div {
+    background-color: antiquewhite;
+    padding-left: 1cm;
+    border-left: 20px solid yellow;
+}
