@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.head {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.contenthead a {
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+}
+
+
+.dsach {
+    background-color: wheat;
+    margin-left: 0.2cm;
+    padding: 15px;
+    width: 120px;
+
+    text-align: start;
+}
+
+img{
+    width: 200px;
+    height: 100px;
+}
+table {
+    width: 100%;
+    height: 60%;
+}
+.choice {
+    margin-left: 0.7cm;
+}.headd {
+    font-weight: 800;
+    opacity: 0.8;
+    font-size: x-large;
+}
+.fotter {
+    font-weight: 300;
+    opacity: 0.5;
+}
+.ket {
+   
+    height: 100%;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}

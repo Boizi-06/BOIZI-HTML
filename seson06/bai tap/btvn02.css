@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+div {
+    background-color: aliceblue;
+   width: 8.5cm;
+}
+form {
+    margin-left: 1cm;
+    border-radius: 4px;
+    background-color: white;
+    padding-left: 1cm;
+    padding-bottom: 1cm;
+    padding-top: 1cm;
+    width: 6.5cm;
+}
+input {
+    border-radius: 5px;
+}
+button {
+    border-radius: 5px;
+    text-align: center;
+    background-color: aqua;
+    color: white;
+    width: 170px;
+    border-color: aqua;
+}
