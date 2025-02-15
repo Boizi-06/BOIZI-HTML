@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+div {
+    height: 13cm;
+    width: 100%;
+    background-color: beige;
+    
+    
+}
+table {
+    width: 98%;
+    height: 12cm;
+    padding-top: 0.5cm;
+}
+img {
+    text-align: center;
+    border-right: 1px solid black;
+}
+.time {
+    font-size: small;
+    font-weight: 300;
+    opacity: 0.7;
+    margin-top: 0.7cm;
+    margin-bottom: 0.5cm;
+}
+.head {
+    margin-top: 0.4cm;
+    margin-bottom: 0.6cm;
+}
+.body {
+    text-align: center;
+    padding-left: 3.5cm;
+}
+button {
+    width: 3cm;
+    height: 1.4cm;
+   margin-top: 0.7cm;
+   font-weight: 600;
+   opacity: 1;
+   margin: 5px;
+   border: 1px solid black;
+}
+

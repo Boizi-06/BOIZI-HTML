@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.cha{
+    
+    background-color: azure;
+    
+}
+.con {
+    width: 220px;
+    height: 70px;
+    background-color: white;
+    text-align: center;
+    border: 1px solid black;
+    margin: 5px;
+}
+.p1 {
+    color: red;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: smaller;
+}
+.p2 {
+    font-size: x-small;
+    color: blue;
+    padding-bottom: 1px;
+}
+table {
+    width: 100%;
+    background-color: azure;
+}

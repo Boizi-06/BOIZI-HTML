@@ -1,0 +1,31 @@
+/* p {
+    border-left: 2px solid black;
+} */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.cha {
+    padding-left: 0.5cm;
+}
+
+p span {
+    display: inline-block;
+    height: 1cm;
+    margin-right: 27cm;
+}
+.head {
+    margin: 0.5cm 0px;
+}
+.body {
+    
+    background-color: aqua;
+    
+}
+.color {
+    color: brown;
+}
+.con {
+    margin-bottom: 0.5cm;
+}

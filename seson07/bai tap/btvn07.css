@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    padding: auto;
+}
+div {
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 0px 1cm;
+    display: inline-block;
+    height: 9cm;
+}
+hr {
+    margin: 0.5cm 0px;
+}
+input {
+    margin: 0.5cm 0cm;
+}
+textarea {
+    margin-top: 0.5cm;
+}
+.delete {
+    color: white;
+    background-color: black;
+    margin-right: 0.3cm;
+    border-radius: 5px;
+    position: relative;
+    left: 1cm;
+}
+.submit {
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    position: relative;
+    left: 1cm;
+}

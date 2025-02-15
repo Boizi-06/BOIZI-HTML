@@ -1,0 +1,70 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.cha {
+    width: 7cm;
+    height: 13cm;
+   
+}
+img{
+    width: 60px;
+    height: 80px;
+    position: relative;
+    top: 1.2cm;
+    left: 4.5cm;
+}
+.con {
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 0.3cm;
+    width: 6cm;
+    height: 12.5cm;
+    border-radius: 8px;
+
+    text-align: center;
+    
+}
+.head {
+    border-radius: 8px 8px 0px 0px;
+    text-align: center;
+    padding-top: 0.3cm;
+    height: 1cm;
+    background-color: red;
+    color: white;
+    font-weight: 800;
+    opacity: 1;
+}
+
+.body{
+    text-align: center;
+    margin: 10px 0px;
+}
+.submit {
+    height: 1cm;
+    text-align: center;
+    background-color: red;
+    color: white;
+    width: 4cm;
+    border-radius: 10px;
+    border: 1px solid red;
+    
+    
+}
+.gui {
+    margin: 15px 0px;
+    width: 3cm;
+    height: 0.8cm;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid red;
+    background-color: white;
+    color: red;
+}
+i {
+    margin-right: 0.5cm;
+}
+p span {
+    color: orange;
+}
