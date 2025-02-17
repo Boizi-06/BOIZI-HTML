@@ -1,0 +1,48 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 9cm;
+    border-radius: 5px;
+    
+    background-color: blue;
+    justify-content: space-around;
+    color: white;
+    padding-top: 0.5cm;
+}
+.cha{
+    border-radius: 5px;
+    width: 48%;
+    height: 4cm;
+    background-color: rgb(150, 13, 13);
+    
+    
+
+
+}
+.con {
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: black;
+    width: 48%;
+    height: 4cm;
+    background-color: blue;
+    justify-content: space-around;
+
+}
+.item {
+    border-radius: 5px;
+    background-color: blueviolet;
+    width: 240px;
+    height: 0.7cm;
+}
+
