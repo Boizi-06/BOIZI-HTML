@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.header {
+    background-color: blue;
+    color: white;
+    margin: 5px;
+}
+.body {
+    
+    display: flex;
+    margin-top: 5px;
+    padding-left: 5px;
+    height: 200px;
+   
+
+}
+.body .sidebar {
+    width: 100px;
+    background-color: green;
+    margin: 5px 0px;
+    padding-left: 5px;
+    color: white;
+}
+.body .content {
+    background-color: red;
+    padding-left: 5px;
+    color: white;
+    width: 100%;
+    margin: 5px 5px;
+}
+.footer {
+    margin: 5px 5px;
+    background-color: blueviolet;
+    color: white;
+}

@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: blue;
+    justify-content: center;
+}
+.item{
+    background-color: brown;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    width: 165px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item2 {
+    background-color: brown;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    width: 340px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
