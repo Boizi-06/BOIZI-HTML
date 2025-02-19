@@ -1,0 +1,156 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: 100%;
+    height: 15.5cm;
+    display: flex;
+    flex-direction: row;
+    background-color: azure;
+    padding: 1cm;
+}
+.container .infor {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 3cm;
+    height: 10.5cm;
+    
+    
+}
+.container .infor img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+.container .avatar {
+    width: 6.5cm;
+    height: 6.5cm;
+    
+    margin: 0px 0.8cm;
+}
+.container .avatar img {
+    width: 200px;
+    height: 200px;
+}
+.container .profile {
+    width: 12cm;
+    height: 13cm;
+    
+}
+.profile .body .money {
+    font-weight: 300;
+    opacity: 0.5;
+    margin: 0.5cm 0cm;
+}
+.body .evaluation{
+    width: 8.5cm;
+    
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.5cm;
+    
+}
+.body .evaluation .star i {
+    
+   
+    margin-right: 5px;
+    top: 10cm;
+}
+.body .evaluation .star {
+    border-right: 1px solid black;
+}
+.body .evaluation p {
+    margin-left: 0.3cm;
+    font-weight: 300;
+    opacity: 0.5;
+}
+.body .content p {
+    font-size: x-small;
+    margin-bottom: 0.5cm;
+}
+.body .size p {
+    font-weight: 300;
+    opacity: 0.8;
+    margin-bottom: 0.2cm;
+}
+.body .size .choicee1 {
+    width: 3cm;
+    height: 1cm;
+}
+.size .choicee1 span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: aqua;
+    border-radius: 2px;
+    border: 1px solid black;
+    
+}
+.body .color p {
+    font-weight: 300;
+    opacity: 0.8;
+    margin-bottom: 0.2cm;
+}
+.color .size .choicee1 {
+    width: 3cm;
+    height: 1cm;
+}
+.color .choicee2 span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+.choice {
+    width: 10cm;
+    height: 1.2cm;
+    
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.3cm;
+    margin-bottom: 0.5cm;
+}
+.choice .number {
+    width: 2.9cm;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin-right: 0.7cm;
+}
+.choice .number span {
+    margin: 0px 15px;
+}
+.choice .addtocart {
+    width: 2.9cm;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin-right: 0.7cm;
+}
+.choice .compare {
+    width: 2.9cm;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 20px;
+    margin-right: 0.7cm;
+}
+table {
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+
+
+
+
