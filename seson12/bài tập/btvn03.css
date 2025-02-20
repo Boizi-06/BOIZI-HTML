@@ -1,0 +1,20 @@
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #acb1b1;
+}
+
+.btn-success {
+    width: 100%;
+    font-weight: bold;
+}
+
+.btn-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}

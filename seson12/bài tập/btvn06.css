@@ -1,0 +1,14 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border: none;
+    text-align: center;
+}
+
+.vip-highlight {
+    background-color: #ffc107;
+    color: black;
+    font-weight: bold;
+}
