@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.contaner {
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+}
+.container .header {
+    
+    width: 100%;
+    height: 2.5cm;
+}
+.header .header-top {
+    color: white;
+    background-color: black;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 1.2cm;
+}
+.header-top .introduction {
+    width: 18cm;
+}
+
+.header-top .introduction a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 1;
+}
+.header-top .introduction span {
+    font-weight: 400;
+    opacity: 0.9;
+}
+.header-top .language {
+    position: absolute;
+    left: 25cm;
+}
+
+.container .header-botton {
+    width: 100%;
+    height: 2cm;
+    text-align: center;
+    background-color: white;
+}
+.header-botton .colw {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: black;
+    border-bottom: 1px solid black;
+}
+.header-botton .colw .taskbar {
+    width: 7cm;
+    display: flex;
+    justify-content: space-between;
+}
+.header-botton .colw .search {
+    width: 5.7cm;
+    display: flex;
+    margin-bottom: 13px;
+    justify-content: space-between;
+}
+.header-botton .colw .search input {
+    background-color: rgb(241, 235, 235);
+    border: 1px solid white;
+    border-radius: 5px;
+    
+}
+.header-botton .colw a {
+    color: black;
+    text-decoration: none;
+
+}
+.main  {
+    height: 677px;
+    width: 92%;
+    margin-top: 1.3cm;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main .main-left img {
+    width: 705px;
+    height: 677px;
+}
+.main .main-right {
+    width: 250px;
+    height: 266px;
+    
+}
+.main .main-right .login {
+    display: flex;
+    flex-direction: column;
+   
+}
+.login .form  {
+    margin-top: 15px;
+    
+}
+.login .form input {
+    border: none;
+    outline: none;
+}
+.form .submit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.form .submit button {
+    color: white;
+    background-color: red;
+    width: 100px;
+    height: 40px;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+.footer {
+    width: 100%;
+    background-color: black;
+    margin-top: 70px;
+    height: 270px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+.footer .footer-top {
+    width: 100%;
+    height: 190px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: black;
+    justify-content: space-around;
+    
+}
+.footer .footer-top .exclusive {
+    width: 14%;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: start;
+    content: space-around;
+}
+.exclusive .email {
+   display: flex;
+   width: 90%;
+  
+   justify-content: space-between;
+   align-items: center;
+   border-radius: 5px;
+}
+.exclusive .email input {
+    background-color: black;
+    width: 3cm;
+    border: none;
+    outline: none;
+}
+.footer .footer-top .suport {
+    width: 18%;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: start;
+    content: space-around;
+}
+.footer .footer-top .account {
+    height: 4.5cm;
+    color: white;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer .footer-top .quicklink{
+    height: 4cm;
+    color: white;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer .footer-top .dowloadapp {
+    width: 5cm;
+    height: 4.4cm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer-top .dowloadapp .qrcode {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.footer .footer-top .dowloadapp span {
+    font-size: small;
+}
+.footer-top .dowloadapp .qrcode img {
+    width: 65px;
+    height: 65px;
+}
+.footer-top .dowloadapp .qrcode .choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-top .dowloadapp .qrcode .choice img {
+    width: 85px;
+    border-radius: 10px;
+    height: 30px;
+}
+.footer-top .dowloadapp .web {
+    margin-top: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.footer .footer-botton {
+    text-align: center;
+    margin-top: 23px;
+    font-weight: 300;
+    opacity: 0.7;
+}
