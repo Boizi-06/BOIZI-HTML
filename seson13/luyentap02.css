@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    height: 1500px;
+    width: 1440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contaienr .header {
+    width: 1440px;
+    height: 812px;
+}
+.header .header-top {
+    width: 1440px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    color: black;
+    background-color: white;
+    
+    align-items: center;
+    justify-content: space-between;
+}
+.header .header-top .logo {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-top .logo span {
+   margin-left: 5px;
+   font-size: 45px;
+}
+.header-top .logo img {
+    width: 50px;
+    height: 32px;
+}
+.header .header-top .taskbar {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header .header-top .taskbar a {
+    margin: 0px 1px;
+    text-decoration: none;
+    color: black;
+}
+
+.header .header-top .utility {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header .header-top .taskbar i {
+    margin: 0px 10px;
+}
+.header .banner {
+    position: relative;
+}
+.header .banner img{
+    width: 1440px;
+    height: 716px;
+}
+.header .banner .content {
+    background-color: rgba(255,243,227,1);
+    width: 643px;
+    height: 443px;
+    padding-left: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    left: 19.5cm;
+    bottom: 4.7cm;
+   
+}
+.header .banner .content h2 {
+    font-size: 60px;
+    color: rgba(184, 142, 47, 1);
+    height: 127px;
+}
+.header .banner .content button {
+    color: white;
+    background-color: rgba(184, 142, 47, 1);
+    width: 222px;
+    height: 74px;
+}
+.header .banner .content p {
+    height: 52px;
+}
+.header .banner .content span {
+    height: 24px;
+}
+.container .main {
+    margin-top: 15px;
+    width: 1183px;
+    height: 685px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+   
+}
+.main-heaeder {
+    width: 1183px;
+    height: 77px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.main-heaeder h3 {
+    font-weight: 600;
+    opacity: 1;
+    font-size: 40px;
+}
+.container .main .introduction {
+    width: 1183px;
+    height: 530px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.container .main .introduction img {
+    width: 381px;
+    height: 480px;
+}
+.container .main .introduction p {
+    margin-top: 30px;
+    height: 36px;
+    width: 381px;
+    text-align: center;
+    font-size: 30px;
+    opacity: 1;
+    font-weight: 500;
+}
