@@ -1,0 +1,10 @@
+let number=10;
+let price=20.5;
+number=parseInt(number);
+price=parseFloat(price);
+let status = true;
+let city = "Ha Noi";
+document.write(number);
+document.write(price);
+document.write(status);
+document.write(city);
