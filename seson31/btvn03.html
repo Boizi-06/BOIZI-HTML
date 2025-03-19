@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+           width: 500px;
+           height: 200px;
+        }
+        span{
+            width: 70px;
+            height: 70px;
+            display: inline-block;
+        }
+        #do{
+            background-color: red;
+        }
+        #xanh {
+            background-color: green;
+        }
+        #tim{
+            background-color: blueviolet;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <p>change background-color</p>
+        <p>Mouse click</p>
+        <span id="xanh">xanh</span>
+        <span id="do">do</span>
+        <span id="tim">tim</span>
+    </div>
+    <script>
+        let div = document.getElementsByTagName("div")[0];
+        let xanh = document.getElementById("xanh");
+        let red = document.getElementById("do");
+        let tim = document.getElementById("tim");
+        xanh.addEventListener("click",function(){
+            div.style.backgroundColor="green";
+        });
+        red.addEventListener("click",function(){
+            div.style.backgroundColor="red";
+        });
+        tim.addEventListener("click",function(){
+            div.style.backgroundColor="purple";
+        });
+    </script>
+</body>
+</html>

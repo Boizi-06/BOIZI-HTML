@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        #container{
+            display: block;
+            width: 1220px;
+            height: 770px;
+            position: relative;
+            background-color: aliceblue;
+        }
+        #modal {
+            margin-top: 20px;
+            width: 190px;
+            height: 70px;
+            left: 80px;
+            background-color: beige;
+            position: absolute;
+            display: none;
+        }
+        i {
+           margin-left: 4.4cm;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Modal Example</h1>
+        <button>Open Modal</button>
+        <div id="modal">
+            <i class="fa-solid fa-delete-left"></i>
+            <p>some text in the modal</p>
+        </div>
+    </div>
+
+    <script>
+        let div = document.getElementById("container");
+        let i = document.getElementsByTagName("i")[0];
+        let modal = document.getElementById("modal");
+        let btn = document.getElementsByTagName("button")[0];
+        btn.addEventListener("click",function(){
+            modal.style.display="block";
+            modal.style.backgroundColor="white";
+            div.style.backgroundColor="gray";
+        });
+        i.addEventListener("click",function(){
+            modal.style.display="none";
+            div.style.backgroundColor="white";
+        })
+       
+      
+
+    </script>
+</body>
+</html>

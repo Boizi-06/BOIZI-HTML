@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đăng Nhập</title>
+</head>
+<body>
+    <form onsubmit="return checkLogin(event)">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br><br>
+
+        <button type="submit">Đăng nhập</button>
+    </form>
+
+    <script>
+        function checkLogin(event) {
+            event.preventDefault();
+
+            const correctUsername = "huanrose@gmail.com";
+            const correctPassword = "123456";
+
+            const inputUsername = document.getElementById("username").value;
+            const inputPassword = document.getElementById("password").value;
+
+            if (inputUsername === correctUsername && inputPassword === correctPassword) {
+                console.log("Đăng nhập thành công!");
+            } else {
+                console.log("Đăng nhập thất bại!");
+            }
+        }
+    </script>
+</body>
+</html>

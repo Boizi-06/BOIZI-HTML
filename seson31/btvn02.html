@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Toggle dark/Light Mode</h1>
+        <p>click the button ...</p>
+        <button>toggle dark mode</button>
+    </div>
+    <script>
+        let button = document.getElementsByTagName("button")[0];
+        let flag=true;
+        button.addEventListener("click",function(){
+            let div = document.getElementById("container");
+            if( flag){
+                div.style.backgroundColor="green";
+                flag=false;
+            }else{
+                div.style.backgroundColor="red";
+                flag=true;  
+            }
+            
+            
+            
+        });     
+    </script>
+</body>
+</html>
