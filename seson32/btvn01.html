@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        span {
+            
+            border: 1px solid red;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>ĐỔI MÀU NỀN</span>
+    </div>
+    <script> 
+        document.getElementsByTagName("span")[0].addEventListener("click",function(){
+            const mauNgauNhien = "#" + Math.floor(Math.random() * 16777215).toString(16);
+            document.getElementsByTagName("div")[0].style.backgroundColor = mauNgauNhien; 
+
+        })
+    </script>
+</body>
+</html>

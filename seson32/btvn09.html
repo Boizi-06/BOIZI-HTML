@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Bar</title>
+    <style>
+        #max {
+            width: 300px;
+            height: 20px;
+            background-color: antiquewhite;
+            border-radius: 4px;
+         
+        }
+        #min {
+            width: 20%;
+            height: 100%;
+            background-color: aqua;
+            border-radius: 4px;
+           
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+           
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Progress Bar</h1>
+        <div id="max">
+            <div id="min"></div>
+        </div>
+        <button id="tang">Tăng</button>
+        <button id="giam">Giảm</button>
+    </div>
+    <script>
+        let size = 20;
+
+        document.getElementById("tang").addEventListener("click", function () {
+            if (size < 100) { 
+                size += 10;
+                document.getElementById("min").style.width = `${size}%`;
+            }
+        });
+
+        document.getElementById("giam").addEventListener("click", function () {
+            if (size > 0) { 
+                size -= 10;
+                document.getElementById("min").style.width = `${size}%`;
+            }
+        });
+    </script>
+</body>
+</html>

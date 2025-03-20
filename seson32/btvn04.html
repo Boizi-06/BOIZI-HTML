@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" name="" id=""><br>
+
+        <span></span><br>
+        <button>Check</button>
+    </div>
+    <script>
+        let email = "hongvan@gmail.com";
+        function check () {
+            if(document.getElementsByTagName("input")[0].value != email) {
+                document.getElementsByTagName("span")[0].innerHTML= "Emal khong ko hop le";
+            } else {
+                document.getElementsByTagName("span")[0].innerHTML= "Emal hop le";
+            }
+        }
+        document.getElementsByTagName("button")[0].addEventListener("click",check);
+    </script>
+</body>
+</html>

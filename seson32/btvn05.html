@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 500px;
+            height: 650px;
+            border: 1px solid black;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: aliceblue;
+
+        }
+        .form {
+           width: 300px;
+            background-color: white;
+            box-shadow: inset;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .headform {
+            margin-top: 10px;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;  
+        }
+        .bodyForm {
+            padding: 10px;
+            margin-top: 10px;
+            width: 300px;
+            height: 20px;
+            border-bottom: 1px solid black;
+            display: flex;
+            align-items: center;
+           justify-content: space-between;
+        }
+        .bodyForm span {
+            background-color: brown;
+            color: white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+           justify-content: center;
+           border-radius: 3px;
+        }
+        button {
+            
+           
+            width: 60px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List K24_PTIT</h1>
+        <div class="headform">
+            <input type="text" name="" id="" placeholder="nhap nhiem vu ..">
+            <button>add</button>
+           </div>
+        <div class="form">
+            
+            
+        </div>
+    </div>
+    <script>
+        let todo = [];
+        let parent =document.getElementsByClassName("form")[0];
+        let children = parent.children; 
+               
+        function addTask () {
+            let str = ""
+            let input =  document.getElementsByTagName("input")[0].value;
+            if(input =="") {
+                console.log ('ten nhiem vu khong duoc de trong');
+            } else {
+                todo.push(input);
+            }
+
+            for(i=0;i<todo.length;i++) {
+                str +=  `
+                <div class="bodyForm">
+                    <p>${todo[i]}</p>
+                    <span onclick="deleteTask(${i})">X</span>
+                </div>` ;  
+               
+            }
+            document.getElementsByClassName("form")[0].innerHTML = str;
+            input.value = "";
+        }
+        function deleteTask(index) {
+            if (confirm("Bạn có chắc chắn muốn xóa nhiệm vụ này?")) {
+                todo.splice(index, 1);
+                let str = "";
+                document.getElementById("taskList");
+
+                for (let i = 0; i < todo.length; i++) {
+                    str += `
+                    <div class="bodyForm">
+                        <p>${todo[i]}</p>
+                        <span>X</span>
+                    </div>
+                    `;
+                }
+
+                document.getElementsByClassName("form")[0].innerHTML = str;
+            }
+        }
+        document.getElementsByTagName("button")[0].addEventListener("click",addTask);
+
+
+
+
+    </script>
+</body>
+</html>
