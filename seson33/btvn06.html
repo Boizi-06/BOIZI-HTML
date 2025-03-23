@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng Dụng Thời Tiết</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: rgb(241, 253, 253);
+            height: 500px;
+        }
+        h1 {
+            color: blue;
+        }
+        input {
+            width: 400px;
+            height: 20px;
+        }
+        button {
+            height: 25px;
+            width: 130px;
+            border: none;
+            color: white;
+            background-color: aqua;
+            border-radius: 3px;
+        }
+        .display {
+            width: 540px;
+            height: 150px;
+            border-radius: 5px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .information {
+            display: flex;
+        }
+        span {
+            font-size: 70px;
+        }
+        .nhietdo {
+            font-size: 57px;
+            margin: 0px 80px;
+            opacity: 0.7;
+        }
+        .text {
+            font-size: 15px;
+            font-weight: 800;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ứng Dụng Thời Tiết</h1>
+        <div class="input">
+            <input type="text" id="cityInput" placeholder="Nhập tên thành phố...">
+            <button id="searchBtn">Tìm Kiếm</button>
+        </div>
+        <div class="display">
+            <!-- Kết quả sẽ hiển thị ở đây -->
+        </div>
+    </div>
+
+    <script>
+        const weatherData = {
+            "Hà Nội": {
+                temperature: 25,
+                humidity: 70,
+                windSpeed: 5,
+                description: "Có mây",
+                icon: "☁️"
+            },
+            "Hồ Chí Minh": {
+                temperature: 32,
+                humidity: 75,
+                windSpeed: 7,
+                description: "Nắng",
+                icon: "☀️"
+            },
+            "Đà Nẵng": {
+                temperature: 28,
+                humidity: 82,
+                windSpeed: 12,
+                description: "Mưa rào",
+                icon: "🌧️"
+            }
+        };
+
+        function searchWeatherDataForCity() {
+            let value = document.getElementById("cityInput").value.trim();
+
+            let display = document.querySelector(".display");
+
+            // Kiểm tra xem thành phố có tồn tại không
+            if (weatherData.hasOwnProperty(value)) {
+                let cityWeather = weatherData[value];
+                display.innerHTML = `
+                    <h3>${value}</h3>
+                    <div class="information">
+                        <span>${cityWeather.icon}</span>
+                        <p class="nhietdo">${cityWeather.temperature}°C</p>
+                        <div class="text">
+                            <p>${cityWeather.description}</p>
+                            <p>Độ ẩm: ${cityWeather.humidity}%</p>
+                            <p>Tốc độ gió: ${cityWeather.windSpeed} km/h</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                display.innerHTML = `<h3>Không tìm thấy thành phố!</h3>`;
+            }
+        }
+
+        document.getElementById("searchBtn").addEventListener("click", searchWeatherDataForCity);
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container {
+            position: relative;
+        }
+        i{
+            position: absolute;
+            top: 2px;
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="inp">
+            <input type="text" name="" id="" placeholder="lua chon danh muc">
+            <i class="fa-solid fa-circle-down" id="show"></i>
+            <button>loc</button>
+        </div>
+        <div class="list">
+            <ul>
+                <!-- <li><b>ten do an:</b> Rau sach - <b>danh muc:</b>Do An</li> -->
+            </ul>
+        </div>
+    </div>
+    <script>
+        let dish = [
+                    { name: 'Táo đỏ', category: 'Đồ ăn' },
+                    { name: 'Bánh mì', category: 'Đồ ăn' },
+                    { name: 'Nước cam', category: 'Nước' },
+                    { name: 'Trà xanh', category: 'Nước' },
+                    { name: 'Kéo cắt', category: 'Dụng cụ' },
+                    { name: 'Búa', category: 'Dụng cụ' }
+                ];
+        let list = document.getElementsByClassName("list")[0];
+        let show = document.getElementById("show");
+        let btn = document.getElementsByTagName("button")[0];
+       
+        function showList (a) {
+            let str = "";
+            for(i=0;i<a.length;i++) {
+                str += `<li><b>ten do an:</b> ${a[i].name} - <b>danh muc:</b>${a[i].category}</li>`;
+            }
+            list.innerHTML = str;
+        }
+
+        function search () {
+            let value = document.getElementsByTagName("input")[0].value;
+            let newDish = dish.filter(element => element.category==value);
+            showList(newDish);
+        }
+        show.addEventListener("click",() =>{showList(dish)});
+        btn.addEventListener("click",search);
+    </script>
+</body>
+</html>
