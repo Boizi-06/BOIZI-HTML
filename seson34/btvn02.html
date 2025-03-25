@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 550px;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            align-items: center;
+        }
+        h1 {
+            width: 100%;
+            text-align: center;
+        }
+        .body{
+            margin-top: 30px;
+            width: 625px;
+            border: 1px solid black;
+        }    
+        .bodyhead {
+            width: 625px;
+            display: flex;
+            align-items: center;
+           justify-content: space-between;
+        }
+        .bodycontent {
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            width: 625px;
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           border: 1px solid black;
+           padding: 10px 0px;
+        }    
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="hedear">
+            <h1>Task Managenmet</h1>
+            <div class="taskbar">
+                <input type="text" class="inputcontent">
+                <input type="date" name="" id="" class="dob">
+                <select name="" id="">
+                    <option value="">choose status</option>
+                    <option value="">pending<option>
+                  
+                </select>
+                <input type="text" class="name">
+                <button class="submit" >submit</button>
+            </div>
+        </div>
+        <div class="body">
+           <div class="bodyhead">
+                <span>#</span>
+                <span> content</span>
+                <span>due date</span>
+                <span>status</span>
+                <span>assignedTo</span>
+                <span>action</span>
+            </div>
+           <div class="bodycontent">
+                <!-- <div class="content">
+                    <span>1</span>
+                    <span>learn Javascript Session</span>
+                    <span>17-04-2023</span>
+                    <span>	pending</span>
+                    <span>Anh Bach</span>
+                    <button class="update">sua</button>
+                    <button class="delete">xoa</button>
+
+                </div> -->
+           </div>
+        </div>
+    </div>
+    <script>
+        function loadTasks() {
+            let tasks = JSON.parse(localStorage.getItem("tasks"));
+            return tasks ? tasks : []; 
+        }
+    
+        function creatTask() {
+            let tasks = loadTasks();
+            let str = "";
+            for (let i = 0; i < tasks.length; i++) {
+                str += `
+                    <div class="content">
+                        <span>${tasks[i].id}</span>
+                        <span>${tasks[i].content}</span>
+                        <span>${tasks[i].dueDate}</span>
+                        <span>${tasks[i].status}</span>
+                        <span>${tasks[i].assignedTo}</span>
+                        <button class="update" onclick="updateTask(${i})">Sửa</button>
+                        <button class="delete" onclick="deleteTask(${i})">Xóa</button>
+                    </div>
+                `;
+            }
+            document.querySelector(".bodycontent").innerHTML = str;
+        }
+    
+        function addTask() {
+            let tasks = loadTasks();
+            if (checkcontent() && checkdate() && checkname()) {
+                let newTask = {
+                    id: tasks.length + 1,
+                    content: document.querySelector(".inputcontent").value,
+                    dueDate: document.querySelector(".dob").value,
+                    status: "Pending",
+                    assignedTo: document.querySelector(".name").value
+                };
+                tasks.push(newTask);
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+                creatTask();
+                // Reset input
+                document.querySelector(".inputcontent").value = "";
+                document.querySelector(".dob").value = "";
+                document.querySelector(".name").value = "";
+            } else {
+                alert("Dữ liệu không hợp lệ");
+            }
+        }
+    
+        function deleteTask(id) {
+            let tasks = loadTasks();
+            tasks.splice(id, 1);
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            creatTask();
+        }
+    
+        function updateTask(id) {
+            let tasks = loadTasks();
+            let task = tasks[id];
+    
+            // Điền dữ liệu cũ vào input
+            document.querySelector(".inputcontent").value = task.content;
+            document.querySelector(".dob").value = task.dueDate;
+            document.querySelector(".name").value = task.assignedTo;
+    
+            // Thay đổi chức năng nút submit
+            let submitBtn = document.querySelector(".submit");
+            submitBtn.innerText = "Cập nhật";
+            submitBtn.onclick = function () {
+                if (checkcontent() && checkdate() && checkname()) {
+                    task.content = document.querySelector(".inputcontent").value;
+                    task.dueDate = document.querySelector(".dob").value;
+                    task.assignedTo = document.querySelector(".name").value;
+    
+                    // Cập nhật localStorage
+                    localStorage.setItem("tasks", JSON.stringify(tasks));
+                    creatTask();
+    
+                    // Reset input và đổi lại nút về "Submit"
+                    document.querySelector(".inputcontent").value = "";
+                    document.querySelector(".dob").value = "";
+                    document.querySelector(".name").value = "";
+                    submitBtn.innerText = "Submit";
+                    submitBtn.onclick = addTask;
+                } else {
+                    alert("Dữ liệu không hợp lệ");
+                }
+            };
+        }
+    
+        creatTask();
+        document.querySelector(".submit").addEventListener("click", addTask);
+    </script>
+    
+</body>
+</html>

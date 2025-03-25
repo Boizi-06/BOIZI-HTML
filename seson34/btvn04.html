@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 350px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .task-input {
+            width: 70%;
+            padding: 8px;
+        }
+        .add-btn {
+            padding: 8px 12px;
+            cursor: pointer;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        li {
+            background: #ddd;
+            margin: 5px 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 5px;
+        }
+        .delete-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Todo List</h1>
+        <input type="text" class="task-input" placeholder="Nhập công việc...">
+        <button class="add-btn">Thêm</button>
+        <ul class="task-list"></ul>
+    </div>
+
+    <script>
+        // Lấy danh sách công việc từ Local Storage
+        function getTasks() {
+            return JSON.parse(localStorage.getItem("tasks")) || [];
+        }
+
+        // Lưu danh sách công việc vào Local Storage
+        function saveTasks(tasks) {
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        // Hiển thị danh sách công việc
+        function renderTasks() {
+            let tasks = getTasks();
+            let taskList = document.querySelector(".task-list");
+            taskList.innerHTML = "";
+            tasks.forEach((task, index) => {
+                let li = document.createElement("li");
+                li.innerHTML = `${task} <button class="delete-btn" onclick="deleteTask(${index})">Xóa</button>`;
+                taskList.appendChild(li);
+            });
+        }
+
+        // Thêm công việc
+        document.querySelector(".add-btn").addEventListener("click", function() {
+            let input = document.querySelector(".task-input");
+            let task = input.value.trim();
+
+            if (task === "") {
+                alert("Vui lòng nhập công việc!");
+                return;
+            }
+
+            let tasks = getTasks();
+            tasks.push(task);
+            saveTasks(tasks);
+            input.value = "";
+            renderTasks();
+        });
+
+        // Xóa công việc
+        function deleteTask(index) {
+            let tasks = getTasks();
+            tasks.splice(index, 1);
+            saveTasks(tasks);
+            renderTasks();
+        }
+
+        // Gọi lại danh sách khi tải trang
+        renderTasks();
+    </script>
+
+</body>
+</html>
+

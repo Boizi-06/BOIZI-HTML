@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 20px;
+        }
+        form {
+            width: 200px;
+            height: 300px;
+            border: 1px solid black;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border-radius: 5px;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        input {
+            width: 165px;
+            height: 20px;
+        }
+        button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <form action="">
+            <label for="email">Email</label><br>
+            <input type="text" id="email" placeholder="Enter the Email">
+            <br>
+            <label for="pass">Password</label><br>
+            <input type="password" id="pass" placeholder="Enter the Password"><br>
+            <label for="confirm">Confirm Password</label><br>
+            <input type="password" id="confirm" placeholder="Enter the Confirm Password"><br>
+            <button type="submit" id="sub">Register</button>
+        </form>
+    </div>
+
+    <script>
+        function checkLength() {
+            let inputs = document.getElementsByTagName("input");
+            for (let i = 0; i < inputs.length; i++) {
+                if (inputs[i].value.trim() === "") {
+                    alert("Các ô nhập không được để trống");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function checkEmail() {
+            if (!checkLength()) return false;
+
+            let value = document.getElementById("email").value;
+            if (!value.includes("@gmail.com")) {
+                alert("Sai định dạng email");
+                return false;
+            }
+            return true;
+        }
+
+        function checkPass() {
+            if (!checkLength()) return false;
+
+            let password = document.getElementById("pass").value;
+            if (isNaN(password)) {
+                alert("Mật khẩu phải là số");
+                return false;
+            }
+            return password;
+        }
+
+        function confirmPass() {
+            let pass = checkPass();
+            if (!pass) return false;
+
+            let confirmPassword = document.getElementById("confirm").value;
+            if (pass !== confirmPassword) {
+                alert("Dữ liệu mật khẩu không đúng");
+                return false;
+            }
+            return true;
+        }
+
+        function submitForm(event) {
+            event.preventDefault(); // Ngăn chặn form submit nếu có lỗi
+
+            if (!checkLength()) return;
+            if (!checkEmail()) return;
+            if (!checkPass()) return;
+            if (!confirmPass()) return;
+
+            localStorage.setItem("email", document.getElementById("email").value);
+            localStorage.setItem("pass", document.getElementById("confirm").value);
+            alert("Đăng ký thành công!");
+        }
+
+        document.getElementById("sub").addEventListener("click", submitForm);
+    </script>
+</body>
+</html>

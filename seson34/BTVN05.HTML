@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách nhân viên</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Danh sách nhân viên Rikkei</h2>
+    <input type="text" id="name" placeholder="Tên nhân viên">
+    <input type="text" id="position" placeholder="Chức vụ">
+    <button onclick="addEmployee()">Thêm nhân viên</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Chức vụ</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody id="employeeList">
+            <!-- Danh sách nhân viên sẽ hiển thị ở đây -->
+        </tbody>
+    </table>
+
+    <script>
+        function loadEmployees() {
+            return JSON.parse(localStorage.getItem("employees")) || [];
+        }
+
+        function saveEmployees(employees) {
+            localStorage.setItem("employees", JSON.stringify(employees));
+        }
+
+        function renderEmployees() {
+            let employees = loadEmployees();
+            let tableBody = document.getElementById("employeeList");
+            tableBody.innerHTML = "";
+            employees.forEach((employee, index) => {
+                let row = `<tr>
+                    <td>${index + 1}</td>
+                    <td>${employee.name}</td>
+                    <td>${employee.position}</td>
+                    <td><button onclick="deleteEmployee(${index})">Xóa</button></td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function addEmployee() {
+            let name = document.getElementById("name").value.trim();
+            let position = document.getElementById("position").value.trim();
+            if (name === "" || position === "") {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            let employees = loadEmployees();
+            employees.push({ name, position });
+            saveEmployees(employees);
+            renderEmployees();
+            document.getElementById("name").value = "";
+            document.getElementById("position").value = "";
+        }
+
+        function deleteEmployee(index) {
+            let employees = loadEmployees();
+            employees.splice(index, 1);
+            saveEmployees(employees);
+            renderEmployees();
+        }
+
+        document.addEventListener("DOMContentLoaded", renderEmployees);
+    </script>
+</body>
+</html>
