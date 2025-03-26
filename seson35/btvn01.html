@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            position: relative;
+        }
+        .delete {
+            padding: 30px;
+            border: 1px solid black;
+            border-radius: 10px;
+            position: absolute;
+            top: 200px;
+            display: none;
+        }
+        .task {
+            margin-top: 20px;
+            padding: 10px 0px;
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 300px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List K24</h1>
+       <div class="input">
+        <input type="text" name="" id="" placeholder="them cong viec" class="input">
+        <button class="them">Them</button>
+       </div>
+        <!-- <div class="task">
+            <p>hoc dom js</p>
+            <button class="sua">sua</button>
+            <button class="xoa">xoa</button>
+       </div>
+       <div class="task">
+            <p>hoc dom js</p>
+            <button class="sua">sua</button>
+            <button class="xoa">xoa</button>
+        </div> -->
+        <div class="delete">
+            <input type="text" class="update">
+            <button class="back">quay lai</button>
+            <button class="oke" onclick="confirm()">oke</button>
+        </div>
+    </div>
+    <script>
+       
+        function loadfile () {
+            let task = JSON.parse (localStorage.getItem("task"));
+            return tasks ? tasks : []; 
+        }
+        function displayTask () {
+            let task = loadfile();
+            let str = "";
+            if(task.length == 0) {
+                return false;
+            }
+            for(i=0;i<task.length;i++) {
+                str+= `
+                     <div class="task" id="${i}">
+                        <p>${task[i]}</p>
+                        <button class="sua" onclick="updateTask(${i})">sua</button>
+                        <button class="xoa" onclick="deleteTask(${i})">xoa</button>
+                    </div>
+                `;
+            }
+            document.getElementsByClassName("container")[0].innerHTML=str;
+        }
+        function addTask () {
+            let task = loadfile();
+            let value= document.getElementsByClassName("input")[0].value;
+            if(value=="") {
+                alert("du lieu khong hop le");
+                return;
+            }
+            task.push(value);
+            document.getElementsByClassName("input")[0].value ="";
+           
+            localStorage.setItem("tasks", JSON.stringify(task));
+            displayTask();
+        }
+        document.getElementsByClassName("them")[0].addEventListener("click",addTask);
+
+        function updateTask (i) {
+            // let task = loadfile();
+            document.getElementsByClassName("delete")[0].style.display ="block"
+            return i;
+            // document.getElementsByClassName("update")[0].value = task[i];
+           
+            // let value = document.getElementsByClassName("update")[0].value;
+            // if(value=="" && value == task[i]) {
+            //     alert("du lieu khong hop le");
+            //     document.getElementsByClassName("delete")[0].style.display = "none";
+            //     return;
+            // }
+            // task[i]=value;
+            // localStorage.setItem("tasks", JSON.stringify(task));
+            // displayTask();
+
+        }
+        function confirm () {
+            let i=updateTask(i);
+            let task = loadfile();
+            document.getElementsByClassName("update")[0].value = task[i];
+           
+            let value = document.getElementsByClassName("update")[0].value;
+            if(value=="" && value == task[i]) {
+                alert("du lieu khong hop le");
+                document.getElementsByClassName("delete")[0].style.display = "none";
+                return;
+            }
+            task[i]=value;
+            localStorage.setItem("tasks", JSON.stringify(task));
+            displayTask();
+        }
+        function deleteTask (id) {
+            let task = loadfile();
+            task.splice(id,1);
+            localStorage.setItem("tasks", JSON.stringify(task));
+            displayTask();
+        }
+        
+        // localStorage.setItem("tasks", JSON.stringify(tasks));
+    </script>
+</body>
+</html>

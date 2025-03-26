@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            margin-left: 100px;
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            border-radius: 10px;
+            position: relative;
+        }
+        h1{
+            width: 300px;
+            height: 30px;
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .body{
+            width: 100%; 
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            
+        }
+        .body .content {
+            width: 280px;
+            border: 1px solid black;
+            padding-left: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .add {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid black;
+            position: absolute;
+            border-radius: 5px;
+            left: 700px;
+            display: none;
+        }
+        .cancel {
+            margin-left: 40px;
+            padding: 10px 10px;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Add BookMark</h1>
+        </div>
+        <div class="body">
+            <!-- <div class="content">
+                <span>x</span>
+                <p>Google dasjkhdsakhj</p>
+            </div>
+            <div class="content">
+                <span>x</span>
+                <p>Google dasjkhdsakhj</p>
+            </div> -->
+            <div class="list">
+
+            </div>
+            <div class="add">
+                <div class="headerAdd">
+                    <span>Add Book Mark</span>
+                    <span class="cancel">x</span>
+                </div>
+                <div class="input">
+                    <label for="">Website Name</label>
+                    <input type="text" class="name">
+                    <label for="">Website URL</label>
+                    <input type="text" class="url">
+                    <button class="save" onclick="addTask2 ()">save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadFile () {
+            let task = JSON.parse(localStorage.getItem("task"));
+            return task ? task : [];
+        }
+        function addTask2 () {
+            let task = loadFile();
+            let name = document.getElementsByClassName("name")[0].value;
+            let url = document.getElementsByClassName("url")[0].value;
+            if(name=="" || url =="") {
+                alert('du lieu khong hop le');
+                return;
+            }
+            let newTas= {
+                ten : name,
+                link : url,
+            }
+            task.push(newTas);
+            localStorage.setItem("task", JSON.stringify(task));
+            console.log(task);
+            render();
+        }
+        function addTask () {
+            document.getElementsByClassName("add")[0].style.display = "block";
+        }
+        function cancelTask () {
+            document.getElementsByClassName("add")[0].style.display = "none";
+            return;
+        }
+        function deleteTask (id) {
+            let task = loadFile();
+            task.splice(id,1);
+            localStorage.setItem("task", JSON.stringify(task));
+            render();
+        }
+        function render () {
+            let task = loadFile ();
+            let str ="";
+            for(i=0;i<task.length;i++) {
+                str+=`
+                    <div class="content">
+                        <span onclick="deleteTask(${i})">x</span>
+                        <p>${task[i].ten}</p>
+                    </div>
+                `;
+            }
+            document.getElementsByClassName("list")[0].innerHTML=str;
+        }
+        document.getElementsByTagName("h1")[0].addEventListener("click",addTask);
+        document.getElementsByClassName("cancel")[0].addEventListener("click",cancelTask);
+      
+    </script>
+</body>                           
+</html>
