@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+    <style>
+        .dangki { display: none; }
+        .dangnhap { display: block; }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            display: none;
+        }
+        .logout-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .logout-btn:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dangki">
+            <h1>Đăng Ký</h1>
+            <input type="text" class="nameDk" placeholder="Tên đăng ký"><br>
+            <input type="password" class="passDk" placeholder="Mật khẩu"><br>
+            <button onclick="dangki()">Đăng Ký</button>
+            <p onclick="displayFormDn()">Quay lại đăng nhập</p>
+        </div>
+        <div class="dangnhap">
+            <h1>Đăng Nhập</h1>
+            <input type="text" class="nameDn" placeholder="Tên đăng nhập"><br>
+            <input type="password" class="passDn" placeholder="Mật khẩu"><br>
+            <input type="checkbox" id="ghinho">
+            <label for="ghinho">Ghi nhớ đăng nhập</label><br>
+            <button onclick="dangnhap()">Đăng Nhập</button>
+            <p onclick="displayFormDki()">Bạn chưa có tài khoản? Đăng ký</p>
+        </div>
+        <div class="card">
+            <h2>Xin chào, <span class="username"></span>! 👋</h2>
+            <p>Chào mừng bạn đến với hệ thống!</p>
+            <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+        </div>
+    </div>
+    <script>
+        function loadFile() {
+            return JSON.parse(localStorage.getItem("user")) || [];
+        }
+
+        function dangki() {
+            let users = loadFile();
+            let name = document.querySelector(".nameDk").value.trim();
+            let pass = document.querySelector(".passDk").value.trim();
+
+            if (!name || !pass) {
+                alert("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+
+            if (users.some(user => user.Name === name)) {
+                alert("Tài khoản đã tồn tại!");
+                return;
+            }
+
+            users.push({ Name: name, pass: pass });
+            localStorage.setItem("user", JSON.stringify(users));
+            alert("Đăng ký thành công! Hãy đăng nhập.");
+            displayFormDn();
+        }
+
+        function dangnhap() {
+            let name = document.querySelector(".nameDn").value.trim();
+            let pass = document.querySelector(".passDn").value.trim();
+            let users = loadFile();
+            let user = users.find(user => user.Name === name && user.pass === pass);
+
+            if (!user) {
+                alert("Sai tên đăng nhập hoặc mật khẩu!");
+                return;
+            }
+
+            document.querySelector(".username").textContent = user.Name;
+            document.querySelector(".dangnhap").style.display = "none";
+            document.querySelector(".card").style.display = "block";
+
+            if (document.getElementById("ghinho").checked) {
+                localStorage.setItem("rememberedUser", JSON.stringify(user));
+            } else {
+                localStorage.removeItem("rememberedUser");
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("rememberedUser");
+            displayFormDn();
+        }
+
+        function displayFormDki() {
+            document.querySelector(".card").style.display = "none";
+            document.querySelector(".dangki").style.display = "block";
+            document.querySelector(".dangnhap").style.display = "none";
+        }
+
+        function displayFormDn() {
+            document.querySelector(".card").style.display = "none";
+            document.querySelector(".dangki").style.display = "none";
+            document.querySelector(".dangnhap").style.display = "block";
+        }
+
+        function checkRememberedUser() {
+            let rememberedUser = JSON.parse(localStorage.getItem("rememberedUser"));
+            if (rememberedUser) {
+                document.querySelector(".username").textContent = rememberedUser.Name;
+                document.querySelector(".dangnhap").style.display = "none";
+                document.querySelector(".card").style.display = "block";
+            }
+        }
+
+        checkRememberedUser();
+    </script>
+</body>
+</html>
